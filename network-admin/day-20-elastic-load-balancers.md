@@ -1,4 +1,4 @@
-# Day 15 — Elastic Load Balancers (ALB, NLB, CLB)
+# Day 20 — Elastic Load Balancers (ALB, NLB, CLB)
 
 ## Concept
 

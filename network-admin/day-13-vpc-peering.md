@@ -1,4 +1,4 @@
-# Day 8 — VPC Peering
+# Day 13 — VPC Peering
 
 ## Concept
 
@@ -26,7 +26,7 @@ VPC A ─── Peer ─── VPC B ─── Peer ─── VPC C
   └────── CANNOT ──────┘       ✗ No transitive routing
 ```
 
-**Solution**: Use **Transit Gateway** (Day 9) for mesh/net topology.
+**Solution**: Use **Transit Gateway** (Day 14) for mesh/net topology.
 
 ## Creating a Peering Connection
 

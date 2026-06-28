@@ -1,4 +1,4 @@
-# Day 20 — Global Accelerator
+# Day 25 — Global Accelerator
 
 ## Concept
 

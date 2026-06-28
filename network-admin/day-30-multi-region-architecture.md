@@ -1,4 +1,4 @@
-# Day 25 — Multi-Region Architecture
+# Day 30 — Multi-Region Architecture
 
 ## Concept
 

@@ -1,4 +1,4 @@
-# Day 24 — PrivateLink & VPC Lattice
+# Day 29 — PrivateLink & VPC Lattice
 
 ## PrivateLink
 

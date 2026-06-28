@@ -1,4 +1,4 @@
-# Day 10 — VPC Endpoints
+# Day 15 — VPC Endpoints
 
 ## Concept
 

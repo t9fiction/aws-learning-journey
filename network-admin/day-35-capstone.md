@@ -1,4 +1,4 @@
-# Day 30 — Capstone: Design an Enterprise Multi-VPC, Multi-Region Hybrid Network
+# Day 35 — Capstone: Design an Enterprise Multi-VPC, Multi-Region Hybrid Network
 
 ## Scenario
 
@@ -250,6 +250,6 @@ Phase 4 (Week 4):
 
 ---
 
-**Congratulations — you've completed the 30-Day AWS Networking curriculum!**
+**Congratulations — you've completed the 35-Day AWS Networking curriculum!**
 
 You now have the knowledge to design, implement, and operate enterprise-grade AWS networks — from basic VPCs to multi-region hybrid architectures.

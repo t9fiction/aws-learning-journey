@@ -86,6 +86,40 @@ The VPC router is an **implicit, always-on** device that:
 - Uses route tables to make forwarding decisions
 - Is fully managed — you can't SSH into it
 
+## DHCP Options Sets
+
+Controls **DNS servers, domain name, and NTP** for instances in the VPC.
+
+### Default DHCP Options
+- **DNS**: AmazonProvidedDNS (Route 53 Resolver at VPC CIDR +2)
+- **Domain name**: `<region>.compute.internal` (e.g., `us-east-1.compute.internal`)
+- **NTP**: Amazon Time Sync Service (169.254.169.123)
+
+### Custom DHCP Options
+
+Useful when you want instances to use your own DNS servers:
+
+```bash
+# Create DHCP options
+aws ec2 create-dhcp-options \
+  --dhcp-configurations \
+    "Key=domain-name-servers,Values=10.0.0.10,10.0.0.11" \
+    "Key=domain-name,Values=corp.example.com" \
+    "Key=ntp-servers,Values=169.254.169.123"
+
+# Associate with VPC
+aws ec2 associate-dhcp-options \
+  --dhcp-options-id dopt-12345678 \
+  --vpc-id vpc-12345678
+```
+
+### Key Facts
+- **One DHCP options set per VPC** (associated, not inherited)
+- **Cannot modify** a DHCP options set — create a new one and associate
+- Changing DHCP options may cause a **brief DNS interruption** (DHCP renewal)
+- Amazon Route 53 Resolver inbound/outbound endpoints (Day 28) override this for hybrid DNS
+- Custom DNS servers must be reachable from the VPC
+
 ## CLI Commands
 
 ```bash

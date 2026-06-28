@@ -238,6 +238,64 @@ aws ssm start-session \
 - IAM-based access control
 - Works across private subnets (no NAT needed)
 
+### Run Command (Remote Execution)
+
+Execute scripts/commands on multiple instances without SSH:
+
+```bash
+# Run a shell command on all web servers tagged with Environment=Production
+aws ssm send-command \
+  --document-name "AWS-RunShellScript" \
+  --targets "Key=tag:Environment,Values=Production" \
+  --parameters 'commands=["yum update -y"]' \
+  --comment "Security patch all production instances"
+```
+
+### Parameter Store (Centralized Config)
+
+Store network configuration securely (VPN PSKs, API keys, config data):
+
+```bash
+# Store a parameter
+aws ssm put-parameter \
+  --name "/network/vpn/shared-secret" \
+  --value "supersecret123" \
+  --type SecureString \
+  --key-id alias/aws/ssm
+
+# Retrieve (from instance)
+aws ssm get-parameter \
+  --name "/network/vpn/shared-secret" \
+  --with-decryption
+
+# Hierarchy example
+/network/dns/primary     → "10.0.0.10"
+/network/dns/secondary   → "10.0.0.11"
+/network/ntp/server      → "169.254.169.123"
+/network/vpn/psk         → (encrypted)
+```
+
+### SSM Agent
+
+- Pre-installed on Amazon Linux 2/2023, Ubuntu AMIs
+- Requires IAM role: `AmazonSSMManagedInstanceCore`
+- Outbound HTTPS (port 443) to SSM endpoints — no inbound ports needed
+- Can be installed on on-premises servers (hybrid activation)
+
+### SSM Architecture Impact
+
+Session Manager changes the network design dramatically:
+
+```
+Before SSM:
+  Internet ──► Bastion (port 22) ──► Private instances (port 22)
+  └── Open SSH port, manage bastion, keys to distribute
+
+After SSM:
+  Internet ──► SSM API (443) ──► SSM Agent (no open ports)
+  └── No bastion, no SSH keys, IAM-based, CloudTrail-logged
+```
+
 ## CLI Commands Summary
 
 ```bash

@@ -1,14 +1,15 @@
-# AWS for Network Administrators — 32-Day Learning Path
+# AWS for Network Administrators — 35-Day Learning Path
 
 A comprehensive, day-by-day curriculum designed for network professionals moving to AWS.
 No fluff, no AI/ML — pure networking.
 
 ## Structure
 
-**Week 1 — Foundations** (Days 1–7): Core AWS networking building blocks + compute
-**Week 2 — Connectivity & Routing** (Days 8–16): Compute, core services, VPC connectivity, DNS
-**Week 3 — LB, CDN & Security** (Days 17–22): Load balancing, content delivery, protection
-**Week 4 — Monitoring, Hybrid & Advanced** (Days 23–32): Operations, multi-region, capstone
+**Week 1 — Foundations** (Days 1–7): Core AWS networking building blocks
+**Week 2 — Compute, Governance & Advanced VPC** (Days 8–15): EC2, core services, Organizations, traffic inspection, container networking, VPC connectivity
+**Week 3 — Connectivity, DNS & LB** (Days 16–22): VPN, Direct Connect, Route 53, load balancers, CloudFront
+**Week 4 — Security & Monitoring** (Days 23–28): WAF, Shield, Network Firewall, Global Accelerator, Flow Logs, Reachability Analyzer
+**Week 5 — Hybrid & Capstone** (Days 29–35): PrivateLink, multi-region, hybrid, security, edge, cost optimization, capstone
 
 ## Daily Format
 
@@ -41,31 +42,35 @@ Each day file covers:
 | 5 | NAT Gateway, NAT Instance, Egress-Only Internet Gateway |
 | 6 | Security Groups — Stateful Firewall |
 | 7 | Network ACLs — Stateless Firewall, Elastic Network Interfaces, Elastic IPs |
+| **Week 2: Compute, Governance & Advanced VPC** |
 | 8 | EC2 & Compute Fundamentals — Instances, AMIs, key pairs, Session Manager |
 | 9 | Core AWS Services — S3, EBS, RDS, CloudWatch, CloudTrail |
-| **Week 2: Connectivity & Routing** |
-| 10 | VPC Peering — Cross-account, cross-region |
-| 11 | Transit Gateway — Hub-and-spoke, multi-VPC |
-| 12 | VPC Endpoints — Gateway Endpoints, Interface Endpoints (PrivateLink) |
-| 13 | Site-to-Site VPN |
-| 14 | Client VPN |
-| 15 | Direct Connect — Dedicated, hosted, LAG |
-| 16 | Route 53 — DNS, hosted zones, routing policies |
-| **Week 3: LB, CDN & Security** |
-| 17 | Elastic Load Balancers — ALB, NLB, CLB |
-| 18 | CloudFront CDN — Distributions, origins, behaviors |
-| 19 | AWS WAF — Web ACLs, rules, rate limiting |
-| 20 | AWS Shield — DDoS protection |
-| 21 | AWS Network Firewall — Stateful inspection |
-| 22 | Global Accelerator — Anycast, traffic optimization |
-| **Week 4: Monitoring, Hybrid & Advanced** |
-| 23 | VPC Flow Logs — Capture, analyze, Athena |
-| 24 | Reachability Analyzer, Network Manager, IPAM |
-| 25 | Route 53 Resolver — DNS resolution, inbound/outbound endpoints |
-| 26 | PrivateLink & VPC Lattice — Service-to-service networking |
-| 27 | Multi-Region Architecture — Disaster recovery, cross-region |
-| 28 | Hybrid Networking — VPN + DX + TGW together |
-| 29 | Network Security — Encryption, TLS, compliance |
-| 30 | Edge Networking — Local Zones, Wavelength, Outposts |
-| 31 | Cost Optimization for Networking |
-| 32 | Capstone — Design an enterprise multi-VPC, multi-region hybrid network |
+| 10 | AWS Organizations, RAM & Config — Governance, resource sharing, compliance |
+| 11 | Gateway Load Balancer & Traffic Inspection — GWLB, TGW appliance mode |
+| 12 | Container Networking & Infrastructure as Code — ECS, EKS, IaC |
+| 13 | VPC Peering — Cross-account, cross-region |
+| 14 | Transit Gateway — Hub-and-spoke, multi-VPC |
+| 15 | VPC Endpoints — Gateway Endpoints, Interface Endpoints (PrivateLink) |
+| **Week 3: Connectivity, DNS & LB** |
+| 16 | Site-to-Site VPN |
+| 17 | Client VPN |
+| 18 | Direct Connect — Dedicated, hosted, LAG |
+| 19 | Route 53 — DNS, hosted zones, routing policies |
+| 20 | Elastic Load Balancers — ALB, NLB, CLB |
+| 21 | CloudFront CDN — Distributions, origins, behaviors |
+| 22 | AWS WAF — Web ACLs, rules, rate limiting |
+| **Week 4: Security & Monitoring** |
+| 23 | AWS Shield — DDoS protection |
+| 24 | AWS Network Firewall — Stateful inspection |
+| 25 | Global Accelerator — Anycast, traffic optimization |
+| 26 | VPC Flow Logs — Capture, analyze, Athena |
+| 27 | Reachability Analyzer, Network Manager, IPAM |
+| 28 | Route 53 Resolver — DNS resolution, inbound/outbound endpoints |
+| **Week 5: Hybrid & Capstone** |
+| 29 | PrivateLink & VPC Lattice — Service-to-service networking |
+| 30 | Multi-Region Architecture — Disaster recovery, cross-region |
+| 31 | Hybrid Networking — VPN + DX + TGW together |
+| 32 | Network Security — Encryption, TLS, compliance |
+| 33 | Edge Networking — Local Zones, Wavelength, Outposts |
+| 34 | Cost Optimization for Networking |
+| 35 | Capstone — Design an enterprise multi-VPC, multi-region hybrid network |

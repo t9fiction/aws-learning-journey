@@ -179,6 +179,70 @@ aws ec2 delete-security-group --group-id sg-12345678
 
 **Cannot delete if**: any ENI is associated with it.
 
+## Managed Prefix Lists
+
+A **managed prefix list** is a set of CIDR blocks you define once and reuse across SGs, route tables, and NACLs.
+
+### Why Use Them
+
+Instead of adding the same 20 office CIDRs to every SG rule:
+```
+sg-web: 203.0.113.0/24, 198.51.100.0/24, 10.0.0.0/8, ...
+sg-app: 203.0.113.0/24, 198.51.100.0/24, 10.0.0.0/8, ...
+sg-db:  203.0.113.0/24, 198.51.100.0/24, 10.0.0.0/8, ...
+```
+
+Create one prefix list and reference it everywhere:
+
+```bash
+# Create a prefix list
+aws ec2 create-managed-prefix-list \
+  --prefix-list-name "Corp-Office-CIDRs" \
+  --max-entries 10 \
+  --entries Cidr=203.0.113.0/24,Description=HQ \
+  --entries Cidr=198.51.100.0/24,Description=DR-Site
+
+# Reference in SG rule
+aws ec2 authorize-security-group-ingress \
+  --group-id sg-web \
+  --protocol tcp \
+  --port 443 \
+  --prefix-list pl-12345678
+```
+
+### Types
+
+| Type | Who Manages | Visibility |
+|------|------------|------------|
+| **Customer-managed** | You | Your account only |
+| **AWS-managed** | AWS | All accounts (e.g., S3 prefix list `pl-6da54004`) |
+| **RAM-shared** | You (shared via RAM) | Other accounts in Org |
+
+### Use Cases
+
+- **Corporate CIDRs**: single prefix list for all office networks
+- **VPC CIDR sets**: manage routes in large multi-VPC environments
+- **Security group scaling**: reduce the number of rules (limit 60 per SG)
+
+```bash
+# Modify entries
+aws ec2 modify-managed-prefix-list \
+  --prefix-list-id pl-12345678 \
+  --add-entries Cidr=10.0.0.0/8,Description=New-Office
+
+# Describe
+aws ec2 describe-managed-prefix-lists
+
+# Get entries
+aws ec2 get-managed-prefix-list-entries --prefix-list-id pl-12345678
+
+# Share via RAM
+aws ram create-resource-share \
+  --name "Prefix-List-Share" \
+  --resource-arns arn:aws:ec2:us-east-1:xxx:prefix-list/pl-12345678 \
+  --principals 999999999999
+```
+
 ## CLI Commands Summary
 
 ```bash
@@ -189,6 +253,12 @@ aws ec2 authorize-security-group-ingress
 aws ec2 authorize-security-group-egress
 aws ec2 revoke-security-group-ingress
 aws ec2 revoke-security-group-egress
+
+# Prefix lists
+aws ec2 create-managed-prefix-list
+aws ec2 describe-managed-prefix-lists
+aws ec2 modify-managed-prefix-list
+aws ec2 get-managed-prefix-list-entries
 ```
 
 ## Console

@@ -1,4 +1,4 @@
-# Day 28 — Edge Networking (Local Zones, Wavelength, Outposts)
+# Day 33 — Edge Networking (Local Zones, Wavelength, Outposts)
 
 ## Concept
 

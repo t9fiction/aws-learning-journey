@@ -1,4 +1,4 @@
-# Day 26 — Hybrid Networking
+# Day 31 — Hybrid Networking
 
 ## Concept
 
@@ -141,7 +141,7 @@ aws ec2 enable-transit-gateway-route-table-propagation \
 
 ## DNS in Hybrid Environments
 
-With Route 53 Resolver (Day 23):
+With Route 53 Resolver (Day 28):
 
 ```
 On-prem DNS ─── Inbound Resolver Endpoint ─── VPC DNS

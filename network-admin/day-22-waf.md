@@ -1,4 +1,4 @@
-# Day 17 — AWS WAF (Web Application Firewall)
+# Day 22 — AWS WAF (Web Application Firewall)
 
 ## Concept
 

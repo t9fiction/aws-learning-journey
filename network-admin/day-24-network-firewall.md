@@ -1,4 +1,4 @@
-# Day 19 — AWS Network Firewall
+# Day 24 — AWS Network Firewall
 
 ## Concept
 

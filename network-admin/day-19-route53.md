@@ -1,4 +1,4 @@
-# Day 14 — Route 53 (DNS)
+# Day 19 — Route 53 (DNS)
 
 ## Concept
 
@@ -321,4 +321,4 @@ aws route53domains list-domains
 - **Query cost**: $0.40/month per million queries (first 1B free for public zones)
 - **Weighted record weights**: must sum to a valid integer — can set to 0 to stop traffic
 - **DNS query logging**: sends DNS queries to CloudWatch Logs
-- **Route 53 Resolver**: for hybrid DNS (covered in Day 23)
+- **Route 53 Resolver**: for hybrid DNS (covered in Day 28)

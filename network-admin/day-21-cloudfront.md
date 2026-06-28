@@ -1,4 +1,4 @@
-# Day 16 — CloudFront (CDN)
+# Day 21 — CloudFront (CDN)
 
 ## Concept
 
