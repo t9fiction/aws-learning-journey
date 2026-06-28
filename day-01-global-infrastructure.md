@@ -66,6 +66,38 @@ Region (e.g. us-east-1)
 
 ## CLI Commands
 
+### Configuration & Credentials
+
+```bash
+# Interactive setup (profile default)
+aws configure
+
+# Interactive setup (named profile)
+aws configure --profile myprofile
+
+# View current config
+aws configure list
+aws configure list --profile myprofile
+
+# Get/set specific config values
+aws configure get region
+aws configure set region us-east-1
+aws configure get region --profile myprofile
+aws configure set output json
+
+# List all named profiles
+aws configure list-profiles
+
+# Verify identity & permissions
+aws sts get-caller-identity
+
+# Manually set credentials (less common; prefer `aws configure`)
+aws configure set aws_access_key_id AKIAxxxxxxxxxxxx
+aws configure set aws_secret_access_key xxxxxxxxxxxxxxxxxxxx
+```
+
+### Region & AZ Discovery
+
 ```bash
 # Describe regions
 aws ec2 describe-regions
